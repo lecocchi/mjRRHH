@@ -10,7 +10,7 @@ class WePage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Image.asset(
-            'assets/we_final.jpg',
+            'assets/we.jpg',
             fit: BoxFit.cover,
           )),
       Column(

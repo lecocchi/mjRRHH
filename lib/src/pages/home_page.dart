@@ -13,7 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final pageController = PageController();
+  final pageController = PageController(
+    initialPage: 0
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class _HomePageState extends State<HomePage> {
     return FlatButton(
         onPressed: () {
           pageController.animateToPage(page,
-              duration: Duration(seconds: 1), curve: Curves.ease);
+              duration: Duration(milliseconds: 700), curve: Curves.ease);
         },
         child: Text(
           name,
