@@ -25,18 +25,18 @@ class _ServicePageState extends State<ServicePage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-          _buildItems('assets/consultoria.png', 'CONSULTORÍA EN RRHH'),
-          _buildItems('assets/evaluacion.png','EVALUACIÓN Y DESARROLLO DE TALENTO'),
-          _buildItems('assets/talentos.png', 'SELECCIÓN DE TALENTOS'),
+          _buildItems('assets/consultoria.png', 'CONSULTORÍA EN RRHH', 4),
+          _buildItems('assets/evaluacion.png','EVALUACIÓN Y DESARROLLO DE TALENTO', 5),
+          _buildItems('assets/talentos.png', 'SELECCIÓN DE TALENTOS', 6),
         ],),
       ],
     );
   }
 
-  Widget _buildItems(String path, String text) {
+  Widget _buildItems(String path, String text, int page) {
     return GestureDetector(
       onTap: (){
-        this.widget.pageController.animateToPage(4,
+        this.widget.pageController.animateToPage(page,
             duration: Duration(milliseconds: 700), curve: Curves.ease);
       },
       child: Container(

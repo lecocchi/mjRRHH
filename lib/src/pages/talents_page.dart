@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ConsultingPage extends StatefulWidget {
+class TalentsPage extends StatefulWidget {
   final pageController;
 
-  const ConsultingPage({Key key, this.pageController}) : super(key: key);
+  const TalentsPage({Key key, this.pageController}) : super(key: key);
 
   @override
-  _ConsultingPageState createState() => _ConsultingPageState();
+  _TalentsPageState createState() => _TalentsPageState();
 }
 
-class _ConsultingPageState extends State<ConsultingPage> {
+class _TalentsPageState extends State<TalentsPage> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -29,11 +29,11 @@ class _ConsultingPageState extends State<ConsultingPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Image.asset(
-                      'assets/consultoria.png',
+                      'assets/talentos.png',
                       width: 70,
                     ),
                     Text(
-                      'CONSULTORÍA EN RRHH',
+                      'SELECCIÓN DE TALENTOS',
                       style: TextStyle(fontSize: 19),
                       textAlign: TextAlign.center,
                     ),
@@ -42,13 +42,11 @@ class _ConsultingPageState extends State<ConsultingPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildItem('Realización de Start Up'),
-                _buildItem(
-                    'Elaboración de Perfiles  y Descripciones de Puestos.'),
-                _buildItem('Implementación de la Gestión por Competencias.'),
-                _buildItem('Gestión del Cambio, Cultura y Visión.'),
-                _buildItem('Asesoría y medición de clima laboral.'),
-                _buildItem('Comunicación Interna.'),
+                _buildItem('Assessment center.'),
+                _buildItem('Mandos Medios.'),
+                _buildItem('Técnicos.'),
+                _buildItem('Vendedores.'),
+                _buildItem('Operarios.'),
               ],
             ),
             Expanded(
@@ -61,7 +59,7 @@ class _ConsultingPageState extends State<ConsultingPage> {
           ],
         ),
         Image.asset(
-          'assets/consulting.jpg',
+          'assets/talents.jpg',
           width: 600,
         ),
       ],
