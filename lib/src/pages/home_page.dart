@@ -19,8 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final pageController = PageController(initialPage: 8);
-  final listviewController = ScrollController();
+  final pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +32,7 @@ class _HomePageState extends State<HomePage> {
          color: Color(0xFFfaf2ec),
          child: Row(
            children: <Widget>[
-             _logo(),
+             _buildLogo(),
              Expanded(child: SizedBox()),
              _fieldMenu('Inicio', 0),
              _fieldMenu('Nosotros', 1),
@@ -65,9 +64,9 @@ class _HomePageState extends State<HomePage> {
    );
   }
 
-  Widget _logo() {
+  Widget _buildLogo() {
     return Image.asset(
-      'assets/logo.jpg',
+      'assets/logo.png',
       height: 80,
     );
   }
