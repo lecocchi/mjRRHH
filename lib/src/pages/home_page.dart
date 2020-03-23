@@ -36,4 +36,7 @@ class _HomePageState extends State<HomePage> {
           )),
     );
   }
+
+  bool _isCellPhoneSize(BuildContext context) =>
+      MediaQuery.of(context).size.width < 1000;
 }

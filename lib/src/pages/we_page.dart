@@ -19,11 +19,11 @@ class WePage extends StatelessWidget {
         Column(
           children: <Widget>[
             SizedBox(
-              height: 15,
+              height: (_isCellPhoneSize(context)) ? 15 : 15,
             ),
             Text(
               'Nosotros',
-              style: TextStyle(fontSize: 60),
+              style: TextStyle(fontSize: (_isCellPhoneSize(context)) ? 40 : 60,),
             ),
             Expanded(child: SizedBox()),
             Container(
@@ -34,7 +34,7 @@ class WePage extends StatelessWidget {
               child: Text(
                 'Somos un equipo de trabajo que brinda soluciones integrales en la gestion del capital humano, con foco en el desarrollo, la eficiencia y el acompañamiento del negocio, tanto para empresas privadas como para organismos públicos.',
                 style: TextStyle(
-                  fontSize: 30,
+                  fontSize: (_isCellPhoneSize(context)) ? 20 : 30,
                   height: 2,
                 ),
               ),
@@ -44,4 +44,7 @@ class WePage extends StatelessWidget {
       ]),
     );
   }
+
+  bool _isCellPhoneSize(BuildContext context) =>
+      MediaQuery.of(context).size.width < 1000;
 }
