@@ -26,7 +26,9 @@ class PrinciplesPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: (_isCellPhoneSize(context)) ? 20 : 0,),
+              SizedBox(
+                height: (_isCellPhoneSize(context)) ? 20 : 0,
+              ),
               Expanded(
                 flex: (_isCellPhoneSize(context)) ? 0 : 1,
                 child: Column(
@@ -71,7 +73,7 @@ class PrinciplesPage extends StatelessWidget {
         children: <Widget>[
           Icon(
             icon,
-            size: (_isCellPhoneSize(context))? 40 : 60,
+            size: (_isCellPhoneSize(context)) ? 40 : 60,
           ),
           SizedBox(
             height: 10,
