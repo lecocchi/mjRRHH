@@ -19,7 +19,7 @@ class WePage extends StatelessWidget {
         Column(
           children: <Widget>[
             SizedBox(
-              height: (_isCellPhoneSize(context)) ? 15 : 15,
+              height: 15,
             ),
             Text(
               'Nosotros',
