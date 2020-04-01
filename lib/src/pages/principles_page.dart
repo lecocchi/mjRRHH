@@ -1,92 +1,127 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mjRRHH/src/widgets/app_bar_customer.dart';
+import 'package:mjRRHH/src/widgets/scheme_widget.dart';
 
 class PrinciplesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarCustomer(),
-      body: SingleChildScrollView(
-        child: Container(
-          width: double.infinity,
-          height: (_isCellPhoneSize(context))
-              ? null
-              : (MediaQuery.of(context).size.height - kToolbarHeight),
-          child: Column(
+    return SchemeWidget(
+      assets: 'assets/principles.jpg',
+      title: 'NUESTROS PRINCIPIOS',
+      content: (_isCellPhoneSize(context))
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _items(context),
+            )
+          : Column(
+        mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Nuestros principios',
-                style: TextStyle(
-                  fontSize: (_isCellPhoneSize(context)) ? 35 : 60,
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: _items(context),
                 ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: (_isCellPhoneSize(context)) ? 20 : 0,
-              ),
-              Expanded(
-                flex: (_isCellPhoneSize(context)) ? 0 : 1,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Wrap(
-                      alignment: WrapAlignment.center,
-                      children: <Widget>[
-                        _itemPrinciples(
-                            context,
-                            FontAwesomeIcons.grin,
-                            'CALIDAD',
-                            'El objetivo de realizar  trabajos de calidad es satisfacer las necesidades de nuestros clientes, entendiendo y alineando las expectativas acerca de los servicios brindados'),
-                        _itemPrinciples(
-                            context,
-                            FontAwesomeIcons.thumbsUp,
-                            'EFECTIVIDAD',
-                            'De esta forma unimos la eficiencia y eficacia, es decir, lograr un efecto deseado en el menor tiempo posible y con la menor cantidad de recursos.'),
-                        _itemPrinciples(
-                            context,
-                            FontAwesomeIcons.handshake,
-                            'COMPROMISO',
-                            'Cumplimos con nuestras obligaciones, con aquello que se nos ha sido encomendado. Es decir, que planificamos y reaccionamos de forma acertada para conseguir sacar adelante un proyecto, y así cumplir con lo acordado.'),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
             ],
           ),
-        ),
-      ),
     );
+  }
+
+  Widget _buildItems(BuildContext context) {
+    if (_isCellPhoneSize(context)) {
+      return Expanded(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: _items(context),
+      ));
+    } else {
+      return Expanded(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: _items(context),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
+  List<Widget> _items(BuildContext context) {
+    return [
+      _itemPrinciples(
+        context,
+        FontAwesomeIcons.grin,
+        'CALIDAD',
+        'El objetivo de realizar  trabajos de calidad es satisfacer las necesidades de nuestros clientes, entendiendo y alineando las expectativas acerca de los servicios brindados',
+      ),
+      _itemPrinciples(context, FontAwesomeIcons.thumbsUp, 'EFECTIVIDAD',
+          'De esta forma unimos la eficiencia y eficacia, es decir, lograr un efecto deseado en el menor tiempo posible y con la menor cantidad de recursos.'),
+      _itemPrinciples(context, FontAwesomeIcons.handshake, 'COMPROMISO',
+          'Cumplimos con nuestras obligaciones, con aquello que se nos ha sido encomendado. Es decir, que planificamos y reaccionamos de forma acertada para conseguir sacar adelante un proyecto, y así cumplir con lo acordado.'),
+    ];
   }
 
   Widget _itemPrinciples(
       BuildContext context, IconData icon, String title, String text) {
     return Container(
-      width: 300,
-      margin: EdgeInsets.all(15),
+      width: (_isCellPhoneSize(context)) ? double.infinity : 350,
+      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            icon,
-            size: (_isCellPhoneSize(context)) ? 40 : 60,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text(
-            title,
-            style: TextStyle(fontSize: 22),
-          ),
+          (_isCellPhoneSize(context))
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    Icon(
+                      icon,
+                      size: 20,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontFamily: 'LEPORSCHE',
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                )
+              : Column(
+                  children: <Widget>[
+                    Icon(
+                      icon,
+                      size: 60,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontFamily: 'LEPORSCHE',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
           Container(
-              margin: EdgeInsets.only(top: 15),
+              margin: EdgeInsets.only(top: 5),
               child: Text(
                 text,
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(
+                  fontFamily: 'yugothic',
+                  fontSize: (_isCellPhoneSize(context)) ? 14 : 19,
+                ),
                 textAlign: TextAlign.center,
               ))
         ],

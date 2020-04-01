@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mjRRHH/src/widgets/app_bar_customer.dart';
+import 'package:mjRRHH/src/widgets/scheme_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactsPage extends StatefulWidget {
@@ -11,77 +11,95 @@ class ContactsPage extends StatefulWidget {
 class _ContactsPageState extends State<ContactsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBarCustomer(),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            child: Image.asset(
-              'assets/contact.jpg',
-              fit: BoxFit.cover,
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            color: Colors.black.withOpacity(0.7),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width,
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Text(
-                'CONTACTO',
-                style: TextStyle(fontSize: 50, color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+    return SchemeWidget(
+      assets: 'assets/contact.png',
+      title: 'CONTACTO',
+      textStyle: TextStyle(
+        color: Colors.white,
+        fontFamily: 'LEPORSCHE',
+        shadows: [BoxShadow(color: Colors.white, offset: Offset(1, 1), blurRadius: 3.5)],
+        fontSize: (_isCellPhoneSize(context)) ? 30 : 60,
+      ),
+      content: (_isCellPhoneSize(context))
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                _buildItems('Empresas', [
+                  _buildItemsContent('assets/gmail.png', 'mjrhumanos@gmail.com',
+                      'mailto:mjrhumanos@gmail.com'),
+                ]),
+                _buildItems('Envio de CV', [
+                  _buildItemsContent('assets/gmail.png', 'mjempleos@gmail.com',
+                      'mailto:mjempleos@gmail.com')
+                ]),
+                _buildItems('Teléfono', [
+                  _buildItemsContent('assets/whatsapp.png', '11-3592-6854', '')
+                ]),
+                _buildItems('Redes Sociales', [
+                  _buildItemsContent('assets/facebook.png',
+                      'facebook.com/MJRRHH', 'https://www.facebook.com/MJRRHH'),
+                  _buildItemsContent('assets/instagram.png', 'mjrecursos',
+                      'https://www.instagram.com/mjrecursos/?hl=es-la'),
+                ]),
+              ],
+            )
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Wrap(
+                  alignment: WrapAlignment.center,
                   children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        _buildItems('Empresas', [
-                          _buildItemsContent(
-                              'assets/gmail.png',
-                              'mjrhumanos@gmail.com',
-                              'mailto:mjrhumanos@gmail.com'),
-                        ]),
-                        _buildItems('Envio de CV', [
-                          _buildItemsContent(
-                              'assets/gmail.png',
-                              'mjempleos@gmail.com',
-                              'mailto:mjempleos@gmail.com')
-                        ]),
-                        _buildItems('Teléfono', [
-                          _buildItemsContent(
-                              'assets/whatsapp.png', '11-3592-6854', '')
-                        ]),
-                        _buildItems('Redes Sociales', [
-                          _buildItemsContent(
-                              'assets/facebook.png',
-                              'https://www.facebook.com/MJRRHH',
-                              'https://www.facebook.com/MJRRHH'),
-                          _buildItemsContent(
-                              'assets/instagram.png',
-                              'MJ Recursos Humanos',
-                              'https://www.instagram.com/mjrecursos/?hl=es-la'),
-                        ]),
-                      ],
-                    ),
+                    _buildItems('Empresas', [
+                      _buildItemsContent(
+                          'assets/gmail.png',
+                          'mjrhumanos@gmail.com',
+                          'mailto:mjrhumanos@gmail.com'),
+                    ]),
+                    _buildItems('Envio de CV', [
+                      _buildItemsContent('assets/gmail.png',
+                          'mjempleos@gmail.com', 'mailto:mjempleos@gmail.com')
+                    ]),
+                    _buildItems('Teléfono', [
+                      _buildItemsContent(
+                          'assets/whatsapp.png', '11-3592-6854', '')
+                    ]),
+                    _buildItems('Redes Sociales', [
+                      _buildItemsContent(
+                          'assets/facebook.png',
+                          'facebook.com/MJRRHH',
+                          'https://www.facebook.com/MJRRHH'),
+                      _buildItemsContent('assets/instagram.png', 'mjrecursos',
+                          'https://www.instagram.com/mjrecursos/?hl=es-la'),
+                    ]),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
+    );
+  }
+
+  Widget _buildItems(String title, List<Widget> itemsContent) {
+    return Container(
+      width: 320,
+      height: (_isCellPhoneSize(context)) ? null : 150,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+              fontFamily: 'yugothic',
+              fontSize: (_isCellPhoneSize(context)) ? 18 : 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: itemsContent,
           ),
         ],
       ),
@@ -97,6 +115,7 @@ class _ContactsPageState extends State<ContactsPage> {
         margin: EdgeInsets.symmetric(vertical: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Image.asset(
               path,
@@ -109,38 +128,14 @@ class _ContactsPageState extends State<ContactsPage> {
               child: Text(
                 content,
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                    decoration: TextDecoration.underline),
+                  fontFamily: 'yugothic',
+                  fontSize: 17,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildItems(String title, List<Widget> itemsContent) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        children: <Widget>[
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: itemsContent,
-          ),
-        ],
       ),
     );
   }
@@ -152,4 +147,7 @@ class _ContactsPageState extends State<ContactsPage> {
       throw 'Could not launch $url';
     }
   }
+
+  bool _isCellPhoneSize(BuildContext context) =>
+      MediaQuery.of(context).size.width < 1000;
 }
