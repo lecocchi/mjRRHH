@@ -38,7 +38,7 @@ const RESOURCES = {
 "/assets/fonts/MaterialIcons-Regular.ttf": "56d3ffdef7a25659eab6a68a3fbfaf16",
 "/assets/fonts/yugothic.ttf": "e587ff1ab1a23fdeee65c351de5ffde4",
 "/assets/FontManifest.json": "deb00e1046a823441c74e2280cdcd4c7",
-"/main.dart.js": "8ef17887cefe9372af40f54ed1efaa88",
+"/main.dart.js": "a99bb2559c29b32398469323a62d86cf",
 "/index.html": "4bbeb265adbc4d1ca011029035829a45"
 };
 
