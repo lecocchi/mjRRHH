@@ -21,10 +21,14 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color(0xFF767070),
         title: Text(
-          'MJ',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          (_isCellPhoneSize(context)) ? 'MJ' : 'MJ Recursos Humanos',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'LEPORSCHE',
+          ),
         ),
         actions: (_isCellPhoneSize(context))
             ? null
@@ -50,10 +54,18 @@ class _MainPageState extends State<MainPage> {
           HomePage(),
           WePage(),
           PrinciplesPage(),
-          ServicePage(pageController: _pageController,),
-          ConsultingPage(pageController: _pageController,),
-          EvaluationPage(pageController: _pageController,),
-          TalentsPage(pageController: _pageController,),
+          ServicePage(
+            pageController: _pageController,
+          ),
+          ConsultingPage(
+            pageController: _pageController,
+          ),
+          EvaluationPage(
+            pageController: _pageController,
+          ),
+          TalentsPage(
+            pageController: _pageController,
+          ),
           ClientsPage(),
           ContactsPage(),
         ],
@@ -70,7 +82,10 @@ class _MainPageState extends State<MainPage> {
         child: Text(
           name,
           style: TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'yugothic'),
         ));
   }
 
