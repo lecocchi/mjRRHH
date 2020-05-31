@@ -28,6 +28,7 @@ class _EvaluationPageState extends State<EvaluationPage> {
           )
         : Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -67,9 +68,12 @@ class _EvaluationPageState extends State<EvaluationPage> {
                   ),
                 ],
               ),
-              Image.asset(
-                'assets/evaluation.jpg',
-                width: 600,
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Image.asset(
+                  'assets/evaluation.jpg',
+                  width: 600,
+                ),
               ),
             ],
           );

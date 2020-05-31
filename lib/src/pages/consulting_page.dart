@@ -32,6 +32,7 @@ class _ConsultingPageState extends State<ConsultingPage> {
           )
         : Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -44,22 +45,23 @@ class _ConsultingPageState extends State<ConsultingPage> {
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     color: Colors.grey[200],
                     child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Image.asset(
-                            'assets/consultoria.png',
-                            width: 70,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Image.asset(
+                          'assets/consultoria.png',
+                          width: 70,
+                        ),
+                        Text(
+                          'CONSULTORÍA EN RRHH',
+                          style: TextStyle(
+                            fontSize: 19,
+                            fontFamily: 'yugothic',
+                            fontWeight: FontWeight.bold,
                           ),
-                          Text(
-                            'CONSULTORÍA EN RRHH',
-                            style: TextStyle(
-                              fontSize: 19,
-                              fontFamily: 'yugothic',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ]),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,9 +78,12 @@ class _ConsultingPageState extends State<ConsultingPage> {
                   ),
                 ],
               ),
-              Image.asset(
-                'assets/consulting.jpg',
-                width: 600,
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Image.asset(
+                  'assets/consulting.jpg',
+                  width: 600,
+                ),
               ),
             ],
           );

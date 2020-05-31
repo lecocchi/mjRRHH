@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mjRRHH/src/widgets/app_bar_customer.dart';
-import 'package:mjRRHH/src/widgets/drawer_custom.dart';
 import 'package:mjRRHH/src/widgets/scheme_widget.dart';
 
 class ClientsPage extends StatelessWidget {
@@ -21,7 +19,12 @@ class ClientsPage extends StatelessWidget {
                       _buildClient('assets/client_naranja.png', 150, 120),
                     ],
                   ),
-                  _buildLogoNasa(context),
+                  Row(
+                    children: [
+                      _buildLogoNasa(context),
+                      _buildLogoHabitat(context),
+                    ],
+                  ),
                   _buildClient('assets/client_onep.png', 250, 120),
                   _buildClient('assets/client_vn.png', 250, 80),
                 ],
@@ -57,6 +60,7 @@ class ClientsPage extends StatelessWidget {
                       width: 40,
                     ),
                     _buildClient('assets/client_vn.png', 350, 200),
+                    _buildLogoHabitat(context),
                   ],
                 ),
               ],
@@ -76,15 +80,24 @@ class ClientsPage extends StatelessWidget {
     );
   }
 
+  Widget _buildLogoHabitat(BuildContext context) {
+    return Container(
+      width: 160,
+      height: (_isCellPhoneSize(context)) ? 100 : 150,
+      child: Image.asset('assets/client_habitat.png',
+              width: (_isCellPhoneSize(context)) ? 150 : 200),
+    );
+  }
+
   Widget _buildLogoNasa(BuildContext context) {
     return Container(
-      width: 200,
+      width: 150,
       height: (_isCellPhoneSize(context)) ? 100 : 130,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Image.asset('assets/client_nasa.png',
-              width: (_isCellPhoneSize(context)) ? 130 : 180),
+              width: (_isCellPhoneSize(context)) ? 100 : 180),
           SizedBox(
             height: 5,
           ),
@@ -92,7 +105,7 @@ class ClientsPage extends StatelessWidget {
             'NUCLEOELÉCTRICA \nARGENTINA S.A.',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: (_isCellPhoneSize(context)) ? 15 : 16),
+                fontSize: (_isCellPhoneSize(context)) ? 12 : 14),
             textAlign: TextAlign.center,
           )
         ],

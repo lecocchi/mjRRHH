@@ -29,6 +29,7 @@ class _TalentsPageState extends State<TalentsPage> {
           )
         : Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -69,9 +70,12 @@ class _TalentsPageState extends State<TalentsPage> {
                   ),
                 ],
               ),
-              Image.asset(
-                'assets/talents.jpg',
-                width: 600,
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: Image.asset(
+                  'assets/talents.jpg',
+                  width: 600,
+                ),
               ),
             ],
           );
