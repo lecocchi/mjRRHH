@@ -27,28 +27,6 @@ class PrinciplesPage extends StatelessWidget {
     );
   }
 
-  Widget _buildItems(BuildContext context) {
-    if (_isCellPhoneSize(context)) {
-      return Expanded(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: _items(context),
-      ));
-    } else {
-      return Expanded(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: _items(context),
-            ),
-          ],
-        ),
-      );
-    }
-  }
-
   List<Widget> _items(BuildContext context) {
     return [
       _itemPrinciples(

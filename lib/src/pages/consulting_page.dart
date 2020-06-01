@@ -89,61 +89,6 @@ class _ConsultingPageState extends State<ConsultingPage> {
           );
   }
 
-  Widget _buildConsultingResponsive() {
-    return Column(
-      children: <Widget>[
-        Container(
-          width: double.infinity,
-          height: 110,
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          color: Colors.grey[200],
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Image.asset(
-                  'assets/consultoria.png',
-                  width: 60,
-                ),
-                Text(
-                  'CONSULTORÍA EN RRHH',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontFamily: 'yugothic',
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ]),
-        ),
-        Expanded(
-            child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/consulting.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Container(
-            color: Colors.white.withOpacity(0.7),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _buildItemsResponsive('Realización de Start Up'),
-                _buildItemsResponsive(
-                    'Elaboración de Perfiles  y Descripciones de Puestos.'),
-                _buildItemsResponsive(
-                    'Implementación de la Gestión por Competencias.'),
-                _buildItemsResponsive('Gestión del Cambio, Cultura y Visión.'),
-                _buildItemsResponsive('Asesoría y medición de clima laboral.'),
-                _buildItemsResponsive('Comunicación Interna.'),
-              ],
-            ),
-          ),
-        )),
-      ],
-    );
-  }
-
   Widget _buildItemsResponsive(String text) {
     return Container(
       height: 55,
