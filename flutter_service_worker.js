@@ -26,7 +26,7 @@ const RESOURCES = {
 "assets/assets/background_clean.jpg": "12b4bec76040a060b744e6995bbaa32f",
 "assets/assets/logo.jpg": "ee7657660f827f0a492db1f6dcf9b820",
 "assets/assets/logo.png": "8a963f5379b6c613c00386e060791f35",
-"assets/assets/client_habitat.png": "238e82ba7291acbacccd01b751f70184",
+"assets/assets/client_habitat.png": "536a925f4a8dfebfbcfa4fc42bf84c7f",
 "assets/assets/talentos.png": "eeee3f9afe520188d1c30c1fc9e9e052",
 "assets/assets/contact.png": "84ca71375e5b4c9d10ab722c18fc1ed8",
 "assets/assets/gmail.png": "b4cec0175adc5e90a8e7c54ee17baf1e",
@@ -38,10 +38,10 @@ const RESOURCES = {
 "assets/assets/whatsapp.png": "81f9842aa3f3882c3a1d072a026e83cb",
 "assets/AssetManifest.json": "8ac8f55292a7437c6b29ff2dc3167fe7",
 "manifest.json": "376518b1d2c980ac76966cbc1072775d",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"index.html": "4bbeb265adbc4d1ca011029035829a45",
-"/": "4bbeb265adbc4d1ca011029035829a45"
+"icons/Icon-512.png": "efc9187e5d7adf753c4846195061a228",
+"icons/Icon-192.png": "2f82b829681c6168784d0af03b3239c9",
+"index.html": "53ae41d73cd95f8e471db31f241b6bc3",
+"/": "53ae41d73cd95f8e471db31f241b6bc3"
 };
 
 self.addEventListener('activate', function (event) {
